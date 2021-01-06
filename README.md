@@ -9,10 +9,10 @@ Fiz isso para não precisar criar um counter para casa música, pois na época e
 
 As notas para criação de novos sons devem ser passadas para o registrador AX.
 
-´´´ 
+```Assembly
 mov ax, 1500    ; sol
 call Som_ON
-´´´
+```
 
 Não lembro quais são graves ou agudos. Me desculpe por isso.
 
