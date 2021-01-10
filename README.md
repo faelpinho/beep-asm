@@ -5,7 +5,9 @@ Usa o buzzer da BIOS para reproduzir musiquinhas.
 
 Nesta versão, tem que ir apertando as teclas (qualquer tecla, exceto ESC) do teclado no ritmo, pois dentro
 da chamada Som_ON possui uma chamada para EsperarTecla. Se retirar a chamada a música vai tocar numa velocidade incrível!
-Fiz isso para não precisar criar um counter para casa música, pois na época eu estava começando a aprender Assembly.
+
+Fiz isso para não precisar criar um counter para casa música.
+Estou pensando numa forma de melhorar isto passando mais um registrador para usar no counter dentro da call Som_ON.
 
 As notas para criação de novos sons devem ser passadas para o registrador AX.
 
