@@ -3,6 +3,8 @@
 
 Usa o buzzer da BIOS para reproduzir musiquinhas.
 
+Necessário testar em sistemas UEFI. Funciona em BIOS legado (legacy).
+
 Nesta versão, tem que ir apertando as teclas (qualquer tecla, exceto ESC) do teclado no ritmo, pois dentro
 da chamada Som_ON possui uma chamada para EsperarTecla. Se retirar a chamada a música vai tocar numa velocidade incrível!
 
