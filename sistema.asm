@@ -9,21 +9,21 @@
 Som_ON:
 	pusha
 
-	mov cx, ax			; Store note value for now
+	mov cx, ax			; Valor da nota
 
 	mov al, 182
 	out 43h, al
-	mov ax, cx			; Set up frequency
+	mov ax, cx			; Frequencia
 	out 42h, al
 	mov al, ah
 	out 42h, al
 
-	in al, 61h			; Switch PC speaker on
+	in al, 61h			; Liga o speaker
 	or al, 03h
 	out 61h, al
 
-	mov ah, 0h					; Subfuncao de aguardar tecla
-	int 16h							; Int de teclado
+	mov ah, 0h			; Subfuncao de aguardar tecla
+	int 16h				; Int de teclado
 
 	popa
 	ret
@@ -61,15 +61,15 @@ EsperarTecla:
 ; IN: (nada)
 
 Reiniciar:		; Função que reinicia o computador
-	call PulaLinha					; Pula uma linha antes de mostrar o texto
+	call PulaLinha				; Pula uma linha antes de mostrar o texto
 	mov si, Str_Reiniciar			; Mensagem de reiniciar
-	call String							; Chama a função de mostrar texto
-	mov ah, 0h							; Subfuncao de aguardar tecla
+	call String				; Chama a função de mostrar texto
+	mov ah, 0h				; Subfuncao de aguardar tecla
 	int 16h
 	mov ax, 0x0040
 	mov ds, ax
-	mov ax, 0x1234					; Seta o valor do endereço 0x0040:0x0072
-	mov [0x0072], ax				; para 0x1234 e em seguida pular pro
+	mov ax, 0x1234				; Seta o valor do endereço 0x0040:0x0072
+	mov [0x0072], ax			; para 0x1234 e em seguida pular pro
 	jmp 0x0FFFF:0x0000			; endereço 0x0FFFF:0x0000 (inicio do POST)
 	; Agora a CPU não bipa mais quando é reiniciada! Bipava quando o pulo era pra 0x7C00.
     
@@ -89,12 +89,12 @@ Desliga:
 	mov al, 00
 	mov bx, 0001h
 	mov cx, 0003h
-	int 15h					; Off! Desliga a cpu (VirtualBox)
+	int 15h					; Off! Desliga a cpu (funcionou no VirtualBox)
 	mov ah, 53h
 	mov al, 07
 	mov bx, 0001h
 	mov cx, 0003h
-	int 15h					; Se falhou, tenta desligar novamente (PC nao desligou)
+	int 15h					; Se falhou, tenta desligar novamente (PC AMD não desligou)
     
     
     
